@@ -16,6 +16,7 @@
 #define QWERTY_RAISE 3
 #define CONTROL 4
 #define NUMPAD 5
+#define MEDIA 6
 
 / {
 	keymap {
@@ -97,14 +98,14 @@
 // ------------------------------------------------------------------------------------------------------------
 // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
 // |  BT1  | BT2 | BT3 | BT4  | BT5  |BTCLR |                   |PSCRN |       | CAPS  |      |  ->   |       |
-// | CHOME |VOICE|     | END  | HOME |      |                   | BSPC |  <-   |       | NLAY | PGDN  |       |
-// | OTOG  |LOCK |QWERT|  v   |  ^   |      |        |  |       |      | PGUP  | BACK  |FORWD |       |       |
+// | CHOME |VOICE|     | END  | HOME | INS  |                   | BSPC |  <-   |  ESC  | NLAY | PGDN  |       |
+// | OTOG  |LOCK |QWERT|  v   |  ^   |      |        |  |       | MLAY | PGUP  | BACK  |FORWD |       |       |
 //                     |      |      |      |        |  |       |      |  DEL  |       |
 			bindings = <
 &kp F1        &kp F2              &kp F3       &kp F4       &kp F5       &kp F6                          &kp F7      &kp F8    &kp F9      &kp F10       &kp F11   &kp F12
-&bt BT_SEL 0  &bt BT_SEL 1        &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR                      &kp PSCRN   &trans    &kp CAPS    &trans        &kp RIGHT &trans
-&kp C_AC_HOME &kp C_VOICE_COMMAND &trans       &kp END      &kp HOME     &trans                          &kp BSPC    &kp LEFT  &trans      &tog NUMPAD   &kp PG_DN &trans
-&out OUT_TOG  &kp C_AL_LOCK       &tog QWERTY  &kp DOWN     &kp UP       &trans     &trans   &trans      &trans      &kp PG_UP &kp K_BACK  &kp K_FORWARD &trans    &trans
+&bt BT_SEL 0  &bt BT_SEL 1        &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR                      &kp PSCRN   &none     &kp CAPS    &none         &kp RIGHT &none
+&kp C_AC_HOME &kp C_VOICE_COMMAND &none        &kp END      &kp HOME     &kp INS                         &kp BSPC    &kp LEFT  &kp ESC     &tog NUMPAD   &kp PG_DN &none
+&out OUT_TOG  &kp C_AL_LOCK       &tog QWERTY  &kp DOWN     &kp UP       &none      &none    &none       &tog MEDIA  &kp PG_UP &kp K_BACK  &kp K_FORWARD &none     &none
                                                &trans       &trans       &trans     &trans   &trans      &trans      &kp DEL   &trans
 			>;
 
@@ -114,16 +115,34 @@
 		numpad_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |   7   |  8  |  9  |  *   |  /   | NLCK |                   |      |       |       |      |       |       |
-// |   4   |  5  |  6  |  +   |  -   | CLR  |                   |      |       |       |      |       |       |
-// |   1   |  2  |  3  |  =   |  ,   |      |                   |      |       |   ^   |      |       |       |
-// |   0   |  .  | ENT |      |      |      |        |  |       |      |  <-   |   v   |  ->  |       |       |
+// |   4   |  5  |  6  |  +   |  -   | CLR  |                   |      |       |   ^   |      |       |       |
+// |   1   |  2  |  3  |  =   |  ,   |      |                   |      |  <-   |   v   |  ->  |       |       |
+// |   0   |  .  | ENT |      |      |      |        |  |       |      |       |       |      |       |       |
 //                     |      |      |      |        |  |       |      |       |       |
 			bindings = <
-&kp KP_N7 &kp KP_N8  &kp KP_N9    &kp KP_MULTIPLY &kp KP_DIVIDE &kp KP_NLCK                    &trans      &trans    &trans    &trans    &trans    &trans
-&kp KP_N4 &kp KP_N5  &kp KP_N6    &kp KP_PLUS     &kp KP_MINUS  &kp KP_CLEAR                   &trans      &trans    &trans    &trans    &trans    &trans
-&kp KP_N1 &kp KP_N2  &kp KP_N3    &kp KP_EQUAL    &kp KP_COMMA  &none                          &trans      &trans    &kp UP    &trans    &trans    &trans
-&kp KP_N0 &kp KP_DOT &kp KP_ENTER &none           &none         &none        &none    &trans   &trans      &kp LEFT  &kp DOWN  &kp RIGHT &trans    &trans
-                                  &trans          &trans        &trans       &trans   &trans   &trans      &trans    &trans
+&kp KP_N7 &kp KP_N8  &kp KP_N9    &kp KP_MULTIPLY &kp KP_DIVIDE &kp KP_NLCK                          &none       &none     &none     &none     &none     &none
+&kp KP_N4 &kp KP_N5  &kp KP_N6    &kp KP_PLUS     &kp KP_MINUS  &kp KP_CLEAR                         &none       &none     &kp UP    &none     &none     &none
+&kp KP_N1 &kp KP_N2  &kp KP_N3    &kp KP_EQUAL    &kp KP_COMMA  &none                                &none       &kp LEFT  &kp DOWN  &kp RIGHT &none     &none
+&kp KP_N0 &kp KP_DOT &kp KP_ENTER &none           &none         &none        &tog NUMPAD &tog NUMPAD &none       &none     &none     &none     &none     &none
+                                  &trans          &trans        &trans       &trans      &trans      &trans      &trans    &trans
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+		};
+
+		media_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      |      |                   | BINC |       |       |      |       |       |
+// |       |     |     |      |      |      |                   | BDEC | VOLDN | VMUTE |VOLUP |       |       |
+// |       |     |     |      |      |      |                   |      | PREV  |  P\P  | NEXT |       |       |
+// |       |     |     |      |      |      |        |  |       |      |       | MUSIC |MOVIE |       |       |
+//                     |      |      |      |        |  |       |      |       |       |
+			bindings = <
+&none &none &none &none &none  &none                        &kp C_BRI_INC &none        &none          &none           &none     &none
+&none &none &none &none &none  &none                        &kp C_BRI_DEC &kp C_VOL_DN &kp C_MUTE     &kp C_VOL_UP    &none     &none
+&none &none &none &none &none  &none                        &none         &kp C_PREV   &kp C_PP       &kp C_NEXT      &none     &none
+&none &none &none &none &none  &none  &tog MEDIA &tog MEDIA &none         &none        &kp C_AL_AUDIO &kp C_AL_MOVIES &none     &none
+                        &trans &trans &trans     &trans     &trans        &trans       &trans         &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;

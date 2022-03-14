@@ -99,14 +99,14 @@
 // ------------------------------------------------------------------------------------------------------------
 // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
 // |  BT1  | BT2 | BT3 | BT4  | BT5  |BTCLR |                   |PSCRN |       | CAPS  |      |  ->   |       |
-// | CHOME |VOICE|     | END  | HOME | INS  |                   | BSPC |  <-   |  ESC  | NLAY | PGDN  |       |
-// | OTOG  |LOCK |QWERT|  v   |  ^   |      |        |  |       | MLAY | PGUP  | BACK  |FORWD |       |       |
+// |       |CHOME|VOICE| END  | HOME | INS  |                   | BSPC |  <-   |  ESC  | NLAY | PGDN  |       |
+// | OTOG  |LOCK |QWERT|  v   |  ^   |      |        |  |       | MLAY | PGUP  | BACK  |FORWD |       |  SYS  |
 //                     |      |      |      |        |  |       |      |  DEL  |       |
 			bindings = <
-&kp F1        &kp F2              &kp F3       &kp F4       &kp F5       &kp F6                          &kp F7      &kp F8    &kp F9      &kp F10       &kp F11   &kp F12
-&bt BT_SEL 0  &bt BT_SEL 1        &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR                      &kp PSCRN   &none     &kp CAPS    &none         &kp RIGHT &none
-&kp C_AC_HOME &kp C_VOICE_COMMAND &none        &kp END      &kp HOME     &kp INS                         &kp BSPC    &kp LEFT  &kp ESC     &tog NUMPAD   &kp PG_DN &none
-&out OUT_TOG  &kp C_AL_LOCK       &tog QWERTY  &kp DOWN     &kp UP       &none      &none    &none       &tog MEDIA  &kp PG_UP &kp K_BACK  &kp K_FORWARD &none     &sl SYS
+&kp F1       &kp F2        &kp F3              &kp F4       &kp F5       &kp F6                          &kp F7      &kp F8    &kp F9      &kp F10       &kp F11   &kp F12
+&bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2        &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR                      &kp PSCRN   &none     &kp CAPS    &none         &kp RIGHT &none
+&trans       &kp C_AC_HOME &kp C_VOICE_COMMAND &kp END      &kp HOME     &kp INS                         &kp BSPC    &kp LEFT  &kp ESC     &tog NUMPAD   &kp PG_DN &none
+&out OUT_TOG &kp C_AL_LOCK &tog QWERTY         &kp DOWN     &kp UP       &none      &none    &none       &tog MEDIA  &kp PG_UP &kp K_BACK  &kp K_FORWARD &none     &sl SYS
                                                &trans       &trans       &trans     &trans   &trans      &trans      &kp DEL   &trans
 			>;
 
@@ -151,13 +151,13 @@
 
 		sys_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      | RST  | BOOT |                   | BOOT | RST   |       |      |       |       |
 // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
 // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
 // |       |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
 //                     |      |      |      |        |  |       |      |       |       |
 			bindings = <
-&none &none &none &none &none  &bootloader               &bootloader &none  &none  &none  &none &none
+&none &none &none &none &reset &bootloader               &bootloader &reset &none  &none  &none &none
 &none &none &none &none &none  &none                     &none       &none  &none  &none  &none &none
 &none &none &none &none &none  &none                     &none       &none  &none  &none  &none &none
 &none &none &none &none &none  &none       &none  &none  &none       &none  &none  &none  &none &none

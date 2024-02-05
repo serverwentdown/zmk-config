@@ -96,11 +96,11 @@
 // |       |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
 //                     | GUI  | ALT  | SHFT |  SPACE |  |ENTER/C| SHFT | BSPC  | CTRL  |
             bindings = <
-&none     &none  &none  &none    &none    &none                               &none     &none    &none     &none   &none     &none
-&none     &none  &none  &none    &none    &none                               &none     &none    &none     &none   &none     &none
-&kp N1    &kp N2 &kp N3 &kp N4   &kp N5   &kp N6                              &kp N7    &kp N8   &kp N9    &kp N0  &kp MINUS &kp EQUAL
-&none     &none  &none  &none    &none    &none     &none     &none           &none     &none    &none     &none   &none     &none
-                        &kp LGUI &kp LALT &kp LSHFT &kp SPACE &lt CONTROL RET &kp RSHFT &kp BSPC &kp RCTRL
+&none     &none  &none  &none    &none    &none                         &none     &none    &none     &none   &none     &none
+&none     &none  &none  &none    &none    &none                         &none     &none    &none     &none   &none     &none
+&kp N1    &kp N2 &kp N3 &kp N4   &kp N5   &kp N6                        &kp N7    &kp N8   &kp N9    &kp N0  &kp MINUS &kp EQUAL
+&none     &none  &none  &none    &none    &none     &none     &none     &none     &none    &none     &none   &none     &none
+                        &none    &none    &none     &none     &none     &none     &none    &none
             >;
         };
     };
@@ -109,7 +109,7 @@
         compatible = "zmk,combos";
         combo_thumbs {
             timeout-ms = <50>;
-            key-positions = <54 55>;
+            key-positions = <53 54>;
             bindings = <&mo CLOSER>;
         };
     };

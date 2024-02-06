@@ -34,9 +34,9 @@
             bindings = <
 &kp N1    &kp N2 &kp N3 &kp N4   &kp N5   &kp N6                              &kp N7    &kp N8   &kp N9    &kp N0  &kp MINUS &kp EQUAL
 &kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                               &kp Y     &kp U    &kp I     &kp O   &kp P     &kp LBKT
-&sk LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                               &kp H     &kp J    &kp K     &kp L   &kp SEMI  &kp SQT
+&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                               &kp H     &kp J    &kp K     &kp L   &kp SEMI  &kp SQT
 &kp ESC   &kp Z  &kp X  &kp C    &kp V    &kp B     &kp GRAVE &kp BSLH        &kp N     &kp M    &kp COMMA &kp DOT &kp FSLH  &kp RBKT
-                        &kp LGUI &kp LALT &sk LSHFT &kp SPACE &lt CONTROL RET &sk RSHFT &kp BSPC &sk RCTRL
+                        &kp LGUI &kp LALT &kp LSHFT &kp SPACE &lt CONTROL RET &kp RSHFT &kp BSPC &kp RCTRL
             >;
         };
 
@@ -102,15 +102,6 @@
 &none     &none  &none  &none    &none    &none     &none     &none     &none     &none    &none     &none   &none     &none
                         &none    &none    &none     &none     &none     &none     &none    &none
             >;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-        combo_thumbs {
-            timeout-ms = <50>;
-            key-positions = <53 54>;
-            bindings = <&mo CLOSER>;
         };
     };
 };

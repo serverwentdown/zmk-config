@@ -162,11 +162,11 @@
             //                     | GUI  | ALT  | SHFT |  SPACE |  |ENTER/C| SHFT | BSPC  | CTRL  |
 
             bindings = <
-&dllrtidle  &ampsprcnt  &lbrc5     &rbrc3   &lpar1  &equal9                         &star0  &rpar2  &plus4  &rbkt6  &excl8  &hashgrave
-&trans      &kp SEMI    &kp COMMA  &kp DOT  &kp P   &kp Y                           &kp F   &kp G   &kp C   &kp R   &kp L   &kp FSLH
-&trans      &kp A       &kp O      &kp E    &kp U   &kp I                           &kp D   &kp H   &kp T   &kp N   &kp S   &kp MINUS
-&trans      &kp SQT     &kp Q      &kp J    &kp K   &kp X    &kp GRAVE    &kp BSLH  &kp B   &kp M   &kp W   &kp V   &kp Z   &atcaret
-                                   &trans   &trans  &trans   &trans       &trans    &trans  &trans  &trans
+&ampsprcnt  &lbkt7    &lbrc5     &rbrc3   &lpar1  &equal9                          &star0  &rpar2  &plus4  &rbkt6  &excl8  &hashgrave
+&trans      &kp SEMI  &kp COMMA  &kp DOT  &kp P   &kp Y                            &kp F   &kp G   &kp C   &kp R   &kp L   &kp FSLH
+&trans      &kp A     &kp O      &kp E    &kp U   &kp I                            &kp D   &kp H   &kp T   &kp N   &kp S   &kp MINUS
+&trans      &kp SQT   &kp Q      &kp J    &kp K   &kp X    &dllrtidle    &kp BSLH  &kp B   &kp M   &kp W   &kp V   &kp Z   &atcaret
+                                 &trans   &trans  &trans   &trans        &trans    &trans  &trans  &trans
             >;
         };
 

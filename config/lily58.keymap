@@ -23,84 +23,111 @@
         excl8: excl_8 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp EXCL>, <&kp N8>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         hashgrave: hash_grave {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp HASH>, <&kp GRAVE>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         atcaret: at_caret {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp AT>, <&kp CARET>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         rbkt6: rbkt_6 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp RBKT>, <&kp N6>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         plus4: plus_4 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp PLUS>, <&kp N4>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         rpar2: rpar_2 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp RPAR>, <&kp N2>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         star0: star_0 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp STAR>, <&kp N0>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         equal9: equal_9 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp EQUAL>, <&kp N9>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         lpar1: lpar_1 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp RPAR>, <&kp N1>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         rbrc3: rbrc_3 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp RBRC>, <&kp N3>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         lbrc5: lbrc_5 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp LBRC>, <&kp N5>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         lbkt7: lbkt_7 {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp LBKT>, <&kp N7>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         ampsprcnt: amps_prcnt {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp AMPS>, <&kp PRCNT>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         dllrtidle: dllr_tidle {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp DLLR>, <&kp TILDE>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -135,11 +162,11 @@
             //                     | GUI  | ALT  | SHFT |  SPACE |  |ENTER/C| SHFT | BSPC  | CTRL  |
 
             bindings = <
-&dllrtidle  &ampsprcnt  &lbrc5     &rbrc3    &lpar1    &equal9                                  &star0     &rpar2    &plus4     &rbkt6  &excl8  &hashgrave
-&kp TAB     &kp SEMI    &kp COMMA  &kp DOT   &kp P     &kp Y                                    &kp F      &kp G     &kp C      &kp R   &kp L   &kp FSLH
-&kp LCTRL   &kp A       &kp O      &kp E     &kp U     &kp I                                    &kp D      &kp H     &kp T      &kp N   &kp S   &kp MINUS
-&kp ESC     &kp SQT     &kp Q      &kp J     &kp K     &kp X      &kp GRAVE    &kp BSLH         &kp B      &kp M     &kp W      &kp V   &kp Z   &atcaret
-                                   &kp LGUI  &kp LALT  &kp LSHFT  &kp SPACE    &lt CONTROL RET  &kp RSHFT  &kp BSPC  &kp RCTRL
+&dllrtidle  &ampsprcnt  &lbrc5     &rbrc3   &lpar1  &equal9                         &star0  &rpar2  &plus4  &rbkt6  &excl8  &hashgrave
+&trans      &kp SEMI    &kp COMMA  &kp DOT  &kp P   &kp Y                           &kp F   &kp G   &kp C   &kp R   &kp L   &kp FSLH
+&trans      &kp A       &kp O      &kp E    &kp U   &kp I                           &kp D   &kp H   &kp T   &kp N   &kp S   &kp MINUS
+&trans      &kp SQT     &kp Q      &kp J    &kp K   &kp X    &kp GRAVE    &kp BSLH  &kp B   &kp M   &kp W   &kp V   &kp Z   &atcaret
+                                   &trans   &trans  &trans   &trans       &trans    &trans  &trans  &trans
             >;
         };
 
@@ -155,7 +182,7 @@
 &kp F1        &kp F2         &kp F3               &kp F4        &kp F5        &kp F6                        &kp F7      &kp F8     &kp F9      &kp F10        &kp F11    &kp F12
 &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2         &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                    &kp PSCRN   &none      &kp CAPS    &none          &kp RIGHT  &none
 &trans        &kp C_AC_HOME  &kp C_VOICE_COMMAND  &kp END       &kp HOME      &kp INS                       &kp BSPC    &kp LEFT   &kp ESC     &tog NUMPAD    &kp PG_DN  &none
-&out OUT_TOG  &kp C_AL_LOCK  &trans               &kp DOWN      &kp UP        &none       &none     &none   &tog MEDIA  &kp PG_UP  &kp K_BACK  &kp K_FORWARD  &none      &none
+&out OUT_TOG  &kp C_AL_LOCK  &trans               &kp DOWN      &kp UP        &none       &none     &none   &tog MEDIA  &kp PG_UP  &kp K_BACK  &kp K_FORWARD  &none      &tog COMPAT
                                                   &trans        &trans        &trans      &trans    &trans  &trans      &kp DEL    &trans
             >;
         };

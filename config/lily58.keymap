@@ -147,21 +147,29 @@
         ds {
             bindings = <&combo_ds>;
             key-positions = <30 34>;
+            timeout-ms = <200>;
+            layers = <6>;
         };
 
         dn {
             bindings = <&combo_dn>;
             key-positions = <30 33>;
+            timeout-ms = <200>;
+            layers = <6>;
         };
 
         at {
             bindings = <&combo_at>;
             key-positions = <25 32>;
+            timeout-ms = <200>;
+            layers = <6>;
         };
 
         fr {
             bindings = <&combo_fr>;
             key-positions = <18 21>;
+            timeout-ms = <200>;
+            layers = <6>;
         };
 
         im {

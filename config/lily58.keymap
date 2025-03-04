@@ -178,6 +178,13 @@
             timeout-ms = <200>;
             layers = <6>;
         };
+
+        cl {
+            bindings = <&combo_cl>;
+            key-positions = <20 22>;
+            timeout-ms = <200>;
+            layers = <6>;
+        };
     };
 
     macros {
@@ -222,6 +229,13 @@
             bindings = <&kp G &kp M &kp R &kp S &kp O &kp K>;
             label = "COMBO_IM";
         };
+
+        combo_cl: combo_cl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp I &kp P &kp A &kp SEMI &kp SEMI>;
+            label = "COMBO_CL";
+        };
     };
 
     keymap {
@@ -236,11 +250,11 @@
             //                     | GUI  | ALT  | SHFT |  SPACE |  |ENTER/C| SHFT | BSPC  | CTRL  |
 
             bindings = <
-&kp N1     &kp N2  &kp N3  &kp N4    &kp N5    &kp N6                                 &kp N7     &kp N8    &kp N9     &kp N0   &kp MINUS  &kp EQUAL
-&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                  &kp Y      &kp U     &kp I      &kp O    &kp P      &kp LBKT
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                  &kp H      &kp J     &kp K      &kp L    &kp SEMI   &kp SQT
-&kp ESC    &kp Z   &kp X   &kp C     &kp V     &kp B      &kp GRAVE  &kp BSLH         &kp N      &kp M     &kp COMMA  &kp DOT  &kp FSLH   &kp RBKT
-                           &kp LGUI  &kp LALT  &kp LSHFT  &kp SPACE  &lt CONTROL RET  &kp RSHFT  &kp BSPC  &kp RCTRL
+&kp N1     &kp N2  &kp N3  &kp N4    &kp N5    &kp N6                                   &kp N7     &kp N8    &kp N9     &kp N0   &kp MINUS  &kp EQUAL
+&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                    &kp Y      &kp U     &kp I      &kp O    &kp P      &kp LBKT
+&kp LCTRL  &kp A   &kp S   &kp D     &kp F     &kp G                                    &kp H      &kp J     &kp K      &kp L    &kp SEMI   &kp SQT
+&kp ESC    &kp Z   &kp X   &kp C     &kp V     &kp B      &kp GRAVE    &kp BSLH         &kp N      &kp M     &kp COMMA  &kp DOT  &kp FSLH   &kp RBKT
+                           &kp LGUI  &kp LALT  &kp LSHFT  &kp SPACE    &lt CONTROL RET  &kp RSHFT  &kp BSPC  &kp RCTRL
             >;
         };
 
@@ -253,11 +267,11 @@
             //                     | GUI  | ALT  | SHFT |  SPACE |  |ENTER/C| SHFT | BSPC  | CTRL  |
 
             bindings = <
-&ampsprcnt  &lbkt7    &lbrc5     &rbrc3   &lpar1  &equal9                       &star0  &rpar2  &plus4  &rbkt6  &excl8  &hashgrave
-&trans      &kp SEMI  &kp COMMA  &kp DOT  &kp P   &kp Y                         &kp F   &kp G   &kp C   &kp R   &kp L   &kp FSLH
-&trans      &kp A     &kp O      &kp E    &kp U   &kp I                         &kp D   &kp H   &kp T   &kp N   &kp S   &kp MINUS
-&trans      &kp SQT   &kp Q      &kp J    &kp K   &kp X   &dllrtidle  &kp BSLH  &kp B   &kp M   &kp W   &kp V   &kp Z   &atcaret
-                                 &trans   &trans  &trans  &trans      &trans    &trans  &trans  &trans
+&ampsprcnt  &lbkt7    &lbrc5     &rbrc3   &lpar1  &equal9                          &star0  &rpar2  &plus4  &rbkt6  &excl8  &hashgrave
+&trans      &kp SEMI  &kp COMMA  &kp DOT  &kp P   &kp Y                            &kp F   &kp G   &kp C   &kp R   &kp L   &kp FSLH
+&trans      &kp A     &kp O      &kp E    &kp U   &kp I                            &kp D   &kp H   &kp T   &kp N   &kp S   &kp MINUS
+&trans      &kp SQT   &kp Q      &kp J    &kp K   &kp X    &dllrtidle    &kp BSLH  &kp B   &kp M   &kp W   &kp V   &kp Z   &atcaret
+                                 &trans   &trans  &trans   &trans        &trans    &trans  &trans  &trans
             >;
         };
 
@@ -270,11 +284,11 @@
             //                     |      |      |      | CLOSER |  |       |      |  DEL  |       |
 
             bindings = <
-&kp F1        &kp F2         &kp F3               &kp F4        &kp F5        &kp F6                                &kp F7      &kp F8     &kp F9      &kp F10        &kp F11    &kp F12
-&bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2         &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                            &kp PSCRN   &none      &kp CAPS    &none          &kp RIGHT  &tog COMBO
-&trans        &kp C_AC_HOME  &kp C_VOICE_COMMAND  &kp END       &kp HOME      &kp INS                               &kp BSPC    &kp LEFT   &kp ESC     &tog NUMPAD    &kp PG_DN  &none
-&out OUT_TOG  &kp C_AL_LOCK  &none                &kp DOWN      &kp UP        &none       &none             &none   &tog MEDIA  &kp PG_UP  &kp K_BACK  &kp K_FORWARD  &none      &tog COMPAT
-                                                  &trans        &trans        &trans      &lt CLOSER SPACE  &trans  &trans      &kp DEL    &trans
+&kp F1        &kp F2         &kp F3               &kp F4        &kp F5        &kp F6                                  &kp F7      &kp F8     &kp F9      &kp F10        &kp F11    &kp F12
+&bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2         &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                              &kp PSCRN   &none      &kp CAPS    &none          &kp RIGHT  &tog COMBO
+&trans        &kp C_AC_HOME  &kp C_VOICE_COMMAND  &kp END       &kp HOME      &kp INS                                 &kp BSPC    &kp LEFT   &kp ESC     &tog NUMPAD    &kp PG_DN  &none
+&out OUT_TOG  &kp C_AL_LOCK  &none                &kp DOWN      &kp UP        &none       &none               &none   &tog MEDIA  &kp PG_UP  &kp K_BACK  &kp K_FORWARD  &none      &tog COMPAT
+                                                  &trans        &trans        &trans      &lt CLOSER SPACE    &trans  &trans      &kp DEL    &trans
             >;
         };
 
@@ -287,11 +301,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&kp KP_N7  &kp KP_N8   &kp KP_N9     &kp KP_MULTIPLY  &kp KP_DIVIDE  &kp KP_NLCK                             &none   &none     &none     &none      &none  &none
-&kp KP_N4  &kp KP_N5   &kp KP_N6     &kp KP_PLUS      &kp KP_MINUS   &kp KP_CLEAR                            &none   &none     &kp UP    &none      &none  &none
-&kp KP_N1  &kp KP_N2   &kp KP_N3     &kp KP_EQUAL     &kp KP_COMMA   &none                                   &none   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
-&kp KP_N0  &kp KP_DOT  &kp KP_ENTER  &none            &none          &none         &tog NUMPAD  &tog NUMPAD  &none   &none     &none     &none      &none  &none
-                                     &trans           &trans         &trans        &tog NUMPAD  &tog NUMPAD  &trans  &trans    &trans
+&kp KP_N7  &kp KP_N8   &kp KP_N9     &kp KP_MULTIPLY  &kp KP_DIVIDE  &kp KP_NLCK                               &none   &none     &none     &none      &none  &none
+&kp KP_N4  &kp KP_N5   &kp KP_N6     &kp KP_PLUS      &kp KP_MINUS   &kp KP_CLEAR                              &none   &none     &kp UP    &none      &none  &none
+&kp KP_N1  &kp KP_N2   &kp KP_N3     &kp KP_EQUAL     &kp KP_COMMA   &none                                     &none   &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
+&kp KP_N0  &kp KP_DOT  &kp KP_ENTER  &none            &none          &none         &tog NUMPAD    &tog NUMPAD  &none   &none     &none     &none      &none  &none
+                                     &trans           &trans         &trans        &tog NUMPAD    &tog NUMPAD  &trans  &trans    &trans
             >;
         };
 
@@ -304,11 +318,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&none  &none  &none  &none   &none   &none                           &kp C_BRI_INC  &none         &none           &none            &none  &none
-&none  &none  &none  &none   &none   &none                           &kp C_BRI_DEC  &kp C_VOL_DN  &kp C_MUTE      &kp C_VOL_UP     &none  &none
-&none  &none  &none  &none   &none   &none                           &none          &kp C_PREV    &kp C_PP        &kp C_NEXT       &none  &none
-&none  &none  &none  &none   &none   &none   &tog MEDIA  &tog MEDIA  &none          &none         &kp C_AL_AUDIO  &kp C_AL_MOVIES  &none  &none
-                     &trans  &trans  &trans  &tog MEDIA  &tog MEDIA  &trans         &trans        &trans
+&none  &none  &none  &none   &none   &none                             &kp C_BRI_INC  &none         &none           &none            &none  &none
+&none  &none  &none  &none   &none   &none                             &kp C_BRI_DEC  &kp C_VOL_DN  &kp C_MUTE      &kp C_VOL_UP     &none  &none
+&none  &none  &none  &none   &none   &none                             &none          &kp C_PREV    &kp C_PP        &kp C_NEXT       &none  &none
+&none  &none  &none  &none   &none   &none   &tog MEDIA    &tog MEDIA  &none          &none         &kp C_AL_AUDIO  &kp C_AL_MOVIES  &none  &none
+                     &trans  &trans  &trans  &tog MEDIA    &tog MEDIA  &trans         &trans        &trans
             >;
         };
 

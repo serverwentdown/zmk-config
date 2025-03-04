@@ -15,6 +15,7 @@
 #define NUMPAD 3
 #define MEDIA 4
 #define CLOSER 5
+#define COMBO 6
 
 &sk { quick-release; };
 
@@ -133,6 +134,86 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        fn {
+            bindings = <&combo_fn>;
+            key-positions = <18 33>;
+            timeout-ms = <200>;
+            layers = <6>;
+        };
+
+        ds {
+            bindings = <&combo_ds>;
+            key-positions = <30 34>;
+        };
+
+        dn {
+            bindings = <&combo_dn>;
+            key-positions = <30 33>;
+        };
+
+        at {
+            bindings = <&combo_at>;
+            key-positions = <25 32>;
+        };
+
+        fr {
+            bindings = <&combo_fr>;
+            key-positions = <18 21>;
+        };
+
+        im {
+            bindings = <&combo_im>;
+            key-positions = <29 45>;
+        };
+    };
+
+    macros {
+        combo_fn: combo_fn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Y &kp F &kp L &kp I &kp SPACE &kp N5 &kp N8 &kp SPACE &kp N3 &kp N4 &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT>;
+            label = "COMBO_FN";
+        };
+
+        combo_ds: combo_ds {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SEMICOLON &kp D &kp K>;
+            label = "COMBO_DS";
+        };
+
+        combo_dn: combo_dn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp P &kp G &kp SEMI &kp K>;
+            label = "COMBO_DN";
+        };
+
+        combo_at: combo_at {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp A &kp SEMI &kp SEMI &kp D &kp O &kp K>;
+            label = "COMBO_AT";
+        };
+
+        combo_fr: combo_fr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Y &kp O &kp S &kp M>;
+            label = "COMBO_FR";
+        };
+
+        combo_im: combo_im {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp G &kp M &kp R &kp S &kp O &kp K>;
+            label = "COMBO_IM";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -175,12 +256,12 @@
             // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
             // |  BT1  | BT2 | BT3 | BT4  | BT5  |BTCLR |                   |PSCRN |       | CAPS  |      |  ->   |       |
             // |       |CHOME|VOICE| END  | HOME | INS  |                   | BSPC |  <-   |  ESC  | NLAY | PGDN  |       |
-            // | OTOG  |LOCK |     |  v   |  ^   |      |        |  |       | MLAY | PGUP  | BACK  |FORWD |       |  SYS  |
-            //                     |      |      |      |        |  |       |      |  DEL  |       |
+            // | OTOG  |LOCK |     |  v   |  ^   |      |        |  |       | MLAY | PGUP  | BACK  | FRWD |       |COMPAT |
+            //                     |      |      |      | CLOSER |  |       |      |  DEL  |       |
 
             bindings = <
 &kp F1        &kp F2         &kp F3               &kp F4        &kp F5        &kp F6                                &kp F7      &kp F8     &kp F9      &kp F10        &kp F11    &kp F12
-&bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2         &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                            &kp PSCRN   &none      &kp CAPS    &none          &kp RIGHT  &none
+&bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2         &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                            &kp PSCRN   &none      &kp CAPS    &none          &kp RIGHT  &tog COMBO
 &trans        &kp C_AC_HOME  &kp C_VOICE_COMMAND  &kp END       &kp HOME      &kp INS                               &kp BSPC    &kp LEFT   &kp ESC     &tog NUMPAD    &kp PG_DN  &none
 &out OUT_TOG  &kp C_AL_LOCK  &none                &kp DOWN      &kp UP        &none       &none             &none   &tog MEDIA  &kp PG_UP  &kp K_BACK  &kp K_FORWARD  &none      &tog COMPAT
                                                   &trans        &trans        &trans      &lt CLOSER SPACE  &trans  &trans      &kp DEL    &trans
@@ -227,14 +308,24 @@
             // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
             // |  1    |  2  |  3  |  4   |  5   |  6   |                   |  7   |  8    |  9    |  0   |   -   |   =   |
             // |       |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
-            //                     | GUI  | ALT  | SHFT |  SPACE |  |ENTER/C| SHFT | BSPC  | CTRL  |
+            //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
 &none   &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none      &none
 &none   &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none      &none
 &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6                  &kp N7  &kp N8  &kp N9  &kp N0  &kp MINUS  &kp EQUAL
 &none   &none   &none   &none   &none   &none   &none    &none  &none   &none   &none   &none   &none      &none
-                        &none   &none   &none   &none    &none  &none   &none   &none
+                        &trans  &trans  &trans  &none    &none  &trans  &trans  &trans
+            >;
+        };
+
+        combo_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
     };

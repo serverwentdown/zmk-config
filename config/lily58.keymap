@@ -175,6 +175,8 @@
         im {
             bindings = <&combo_im>;
             key-positions = <29 45>;
+            timeout-ms = <200>;
+            layers = <6>;
         };
     };
 

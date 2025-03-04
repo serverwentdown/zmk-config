@@ -20,9 +20,9 @@
 
 / {
     behaviors {
-        excl8: excl_8 {
+        atcaret: at_caret {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp EXCL>, <&kp N8>;
+            bindings = <&kp AT>, <&kp CARET>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -36,9 +36,9 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        atcaret: at_caret {
+        excl8: excl_8 {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp AT>, <&kp CARET>;
+            bindings = <&kp EXCL>, <&kp N8>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -86,7 +86,7 @@
 
         lpar1: lpar_1 {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp RPAR>, <&kp N1>;
+            bindings = <&kp LPAR>, <&kp N1>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;

@@ -185,6 +185,11 @@
             timeout-ms = <200>;
             layers = <6>;
         };
+
+        dt {
+            bindings = <&combo_dt>;
+            key-positions = <30 32>;
+        };
     };
 
     macros {
@@ -235,6 +240,13 @@
             #binding-cells = <0>;
             bindings = <&kp I &kp P &kp A &kp SEMI &kp SEMI>;
             label = "COMBO_CL";
+        };
+
+        combo_dt: combo_dt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp H &kp A &kp K &kp A>;
+            label = "COMBO_DT";
         };
     };
 

@@ -190,6 +190,41 @@
             bindings = <&combo_dt>;
             key-positions = <30 32>;
         };
+
+        dk {
+            bindings = <&combo_dk>;
+            key-positions = <30 40>;
+        };
+
+        dc {
+            bindings = <&combo_dc>;
+            key-positions = <30 20>;
+        };
+
+        dh {
+            bindings = <&combo_dh>;
+            key-positions = <30 31>;
+        };
+
+        gc {
+            bindings = <&combo_gc>;
+            key-positions = <19 20>;
+        };
+
+        gs {
+            bindings = <&combo_gs>;
+            key-positions = <19 34>;
+        };
+
+        gp {
+            bindings = <&combo_gp>;
+            key-positions = <19 16>;
+        };
+
+        gl {
+            bindings = <&combo_gl>;
+            key-positions = <19 22>;
+        };
     };
 
     macros {
@@ -247,6 +282,55 @@
             #binding-cells = <0>;
             bindings = <&kp H &kp A &kp K &kp A>;
             label = "COMBO_DT";
+        };
+
+        combo_dk: combo_dk {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp H &kp S &kp I &kp V &kp D &kp O>;
+            label = "COMBO_DK";
+        };
+
+        combo_dc: combo_dc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp H &kp S &kp I &kp V &kp D &kp O &kp SPACE &kp I &kp S &kp M &kp R &kp S &kp SEMI &kp D>;
+            label = "COMBO_DC";
+        };
+
+        combo_dh: combo_dh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp H &kp G &kp I &kp K>;
+            label = "COMBO_DH";
+        };
+
+        combo_gc: combo_gc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp U &kp G &kp K &kp SPACE &kp I &kp S &kp M &kp M &kp G &kp K>;
+            label = "COMBO_GC";
+        };
+
+        combo_gs: combo_gs {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp U &kp G &kp K &kp SPACE &kp SEMI &kp K &kp A &kp K &kp F &kp SEMI>;
+            label = "COMBO_GS";
+        };
+
+        combo_gp: combo_gp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp U &kp G &kp K &kp SPACE &kp R &kp F &kp P &kp P>;
+            label = "COMBO_GP";
+        };
+
+        combo_gl: combo_gl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp U &kp G &kp K &kp SPACE &kp SEMI &kp K &kp A &kp SEMI &kp J>;
+            label = "COMBO_GL";
         };
     };
 
